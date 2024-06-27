@@ -54,6 +54,7 @@ form{
     outline: none;
     flex: 1;
     border-radius: 10px 0 0 10px ;
+    cursor: pointer;
 }
 
 .input-container input[type="file"]::file-selector-button{
@@ -66,6 +67,7 @@ form{
     color: white;
     border: none;
     border-radius: 0 10px 10px 0;
+    cursor: pointer;
 }
 
 .drag-drop-text {

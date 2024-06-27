@@ -1,6 +1,7 @@
 package com.team1.movie.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,20 @@ public class ImageServiceImpl implements ImageService{
     @Override
     public List<ImageFile> getImageList() {
         return List.of();
+    }
+
+    @Override
+    public void saveMovie(String imageId, String trueTitle, String predTitle1, String predTitle2, String predTitle3) {
+        Optional<ImageFile> imageFileOptional = repository.findById(imageId);
+        if (imageFileOptional.isPresent()) {
+            ImageFile imageFile = imageFileOptional.get();
+            imageFile.setTruthTitle(trueTitle);
+            imageFile.setPredTitle1(predTitle1);
+            imageFile.setPredTitle2(predTitle2);
+            imageFile.setPredTitle3(predTitle3);
+            repository.save(imageFile);
+        } else {
+            throw new IllegalArgumentException("ImageFile not found with id: " + imageId);
+        }
     }
 }

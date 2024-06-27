@@ -16,11 +16,18 @@ public class ImageFile {
 	@Id
 	private String id;
 
-	@Column(name = "trueTitle", columnDefinition = "varchar(1024)")
+	@Column(name = "true_title", columnDefinition = "varchar(1024)")
 	private String truthTitle;
 
-	@Column(name = "predTitle", columnDefinition = "varchar(1024)")
-	private String predTitle;
+	@Column(name = "pred_title1", columnDefinition = "varchar(1024)")
+	private String predTitle1;
+	
+	@Column(name = "pred_title2", columnDefinition = "varchar(1024)")
+    private String predTitle2;
+
+    @Column(name = "pred_title3", columnDefinition = "varchar(1024)")
+    private String predTitle3;
+    
 	@Lob
 	@Column(name = "image", columnDefinition = "LONGBLOB")
 	private byte[] photo;
