@@ -10,4 +10,5 @@ public interface ImageService {
 	public ImageFile getImageById(String id);
 	public List<ImageFile> getImageList();
 	public void saveMovie(String imageId, String movieIndex, String predTitle1, String predTitle2, String predTitle3);
+	public Long findMaxSeqNo();
 }

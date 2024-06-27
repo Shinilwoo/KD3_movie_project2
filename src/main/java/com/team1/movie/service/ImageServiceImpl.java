@@ -45,4 +45,9 @@ public class ImageServiceImpl implements ImageService{
             throw new IllegalArgumentException("ImageFile not found with id: " + imageId);
         }
     }
+    
+    @Override
+    public Long findMaxSeqNo() {
+        return repository.findMaxSeqNo();
+    }
 }
