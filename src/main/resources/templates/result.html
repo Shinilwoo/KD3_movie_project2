@@ -36,7 +36,7 @@
 					</div>
 				</div>
 				<div class="navigation">
-					<a href="#">제가 찾는 영화가 맞습니다</a>
+					<a href="#" class="confirm-movie" data-index="${iterStat.count}">제가 찾는 영화가 맞습니다</a>
 					<a th:href="@{/faq}">FAQ</a>
 				</div>
 			</div>
@@ -45,86 +45,11 @@
 		<div class="slide_prev_button slide_button">◀</div>
 		<div class="slide_next_button slide_button">▶</div>
 	</div>
-	<!--    <div class="overlay"></div>
-    <div class="slide">
-        <div class="slide_item">
-            <div class="container">
-                <div class="header">What Is This Movie?</div>
-                <div class="main-content">
-                    <div class="left-section" id="left-section">
-                        <div class="year" id="movieYear1">2019</div>
-                        <div class="movie-title" id="movieTitle1">JOKER</div>               
-                        <div class="button-container" id="buttonContainer1">
-                            <button class="button">WATCH TRAILER</button>
-                        </div>
-                        <div id="image-section">
-                            <img src="20211126012605_vswniwkv.png" alt="Poster">
-                            <div class="demo-overlay"></div>
-                        </div>                       
-                    </div>
-                    <div class="right-section">
-                        <img src="05041257_joker.jpg" alt="Uploaded Image">
-                        <div class="description">
-                            <p>감독: 토드 필립스</p>
-                            <p>장르 : 범죄, 스릴러, 느와르, 서스펜스, 복수, 드라마, 피카레스크, 블랙 코미디, 사회고발, 시대극</p>
-                            <p>배우 : 아서 플렉, 머레이 프랭클린, 페니 플렉, 토머스 웨인, 브루스 웨인, 알프레드 페니워스</p>
-                            <p>고담시에 사는 광대 아서 플렉은 착하게 살아보려 
-                                하지만 인생의 부조리함과 쓴 맛이 끊임없이 그를 
-                                압도한다. 짝사랑도, 커리어도 마음대로 되지 않고 
-                                자신을 향한 세상의 더러움을 견디다 못한 그는 
-                                결국 최악의 악당 조커로 재탄생한다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <a href="#">제가 찾는 영화가 아닙니다</a>
-                    <a href="SiteAbout.html">FAQ</a>
-                    <a href="#">제가 찾는 영화가 맞습니다</a>
-                </div>
-            </div>
-        </div>
-        <div class="slide_item">
-            <div class="container">
-                <div class="header">What Is This Movie?</div>
-                <div class="main-content">
-                    <div class="left-section">
-                        <div class="year" id="movieYear2">2019</div>
-                        <div class="movie-title" id="movieTitle2">WONDERLAND</div>               
-                        <div class="button-container" id="buttonContainer2">
-                            <button class="button">WATCH TRAILER</button>
-                        </div>
-                        <div id="image-content2">
-                            <div id="image-section2">
-                                <img src="cinema-4213751_640.jpg" alt="Poster">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-section">
-                        <img src="05041257_joker.jpg" alt="Uploaded Image">
-                        <div class="description">
-                            <p>감독: sdsadad</p>
-                            <p>장르 : 범죄, 스릴러, 느와르, 서스펜스, 시대극</p>
-                            <p>배우 : 아서 플렉, 머레이 프랭클린, 페니 플렉, 토머스 웨인, 브루스 웨인, 알프레드 페니워스</p>
-                            <p>고담시에 사는 광대 아서 플렉은 착하게 살아보려 
-                                하지만 인생의 부조리함과 쓴 맛이 끊임없이 그를 
-                                압도한다. 짝사랑도, 커리어도 마음대로 되지 않고 
-                                자신을 향한 세상의 더러움을 견디다 못한 그는 
-                                결국 최악의 악당 조커로 재탄생한다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <a href="#">제가 찾는 영화가 아닙니다</a>
-                    <a href="SiteAbout.html">FAQ</a>
-                    <a href="#">제가 찾는 영화가 맞습니다</a>
-                </div>
-            </div>    
-        </div>
-        <div class="slide_prev_button slide_button">◀</div>
-        <div class="slide_next_button slide_button">▶</div>
-    </div>-->
+	
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script th:src="@{/result.js}"></script>
+	<script src="/title_save.js"></script>
 </body>
 
 </html>

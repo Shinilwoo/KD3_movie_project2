@@ -21,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -64,6 +65,7 @@ public class MovieController {
 			file.getOriginalFilename();
 			ImageFile imageFile = new ImageFile();
 			imageFile.setId(boundary);
+			session.setAttribute("imageId", boundary);
 			imageFile.setPhoto(file.getBytes());
 			System.out.println("원본사이즈:" + file.getSize());
 			System.out.println("원본:" + file.getBytes().toString());
@@ -194,5 +196,26 @@ public class MovieController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 	}
+	
+	// 맞는 영화 선택했을 때 DB에 저장
+	@PostMapping("/confirmMovie")
+    public ResponseEntity<Void> confirmMovie(@RequestBody Map<String, Object> data, HttpSession session) {
+        try {
+            Integer movieIndex = (Integer) data.get("index");
+            String imageId = (String) session.getAttribute("imageId");
+            String predTitle1 = (String) data.get("predTitle1");
+            String predTitle2 = (String) data.get("predTitle2");
+            String predTitle3 = (String) data.get("predTitle3");
+
+            // Convert movieIndex to String for trueTitle
+            String trueTitle = String.valueOf(movieIndex);
+
+            imageService.saveMovie(imageId, trueTitle, predTitle1, predTitle2, predTitle3);
+
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 
 }
