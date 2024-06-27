@@ -69,6 +69,11 @@ public class MovieController {
 			imageFile.setPhoto(file.getBytes());
 			System.out.println("원본사이즈:" + file.getSize());
 			System.out.println("원본:" + file.getBytes().toString());
+			
+			long maxNo = imageService.findMaxSeqNo(); //테이블에서 max sequence가져와서
+            System.out.println("maxNo:"+maxNo);
+            imageFile.setSeqNo(maxNo + 1);
+            
 			imageService.insert(imageFile);
 			///////////////////////////////
 			// HTTP 연결 설정
