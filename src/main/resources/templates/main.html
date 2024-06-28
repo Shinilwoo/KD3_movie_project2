@@ -19,7 +19,7 @@
 			<img id="preview" />
 		</div>
 		<div class="input-container">
-			<form th:action="@{/}" method="post" enctype="multipart/form-data" onsubmit="return validateFileInput()">
+			<form th:action="@{/}" id="uploadForm" method="post" enctype="multipart/form-data" onsubmit="submitForm(event)">
 				<input type="file" name="file" id="fileInput" accept="image/*"
 					placeholder="Type or paste your image URL here...">
 				<input type="submit" value="or upload an image">
