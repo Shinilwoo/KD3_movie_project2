@@ -29,7 +29,7 @@
 					<div class="right-section">
 						<div class="description">
 							<p th:text="'감독: ' + ${movie.movie_info.director}"></p>
-							<p th:text="'장르: ' + ${movie.movie_info.genres}"></p>
+							<p th:text="'장르: ' + ${#strings.arrayJoin(movie.movie_info.genres, ', ')}"></p>
 							<p th:text="'배우: ' + ${movie.movie_info.actors}"></p>
 							<p th:text="${movie.overview}"></p>
 						</div>
