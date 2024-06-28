@@ -16,14 +16,15 @@
 				<div class="header"><a href="">What Is This Movie?</a></div>
 				<div class="main-content">
 					<div class="left-section">
-						<div class="year" th:text="${movie.movie_info.release_date}"></div>
-						<div class="movie-title" th:text="${movie.movie_info.title}"></div>
-						<div class="button-container">
-							<a th:href="${movie.movie_info.trailer_url}" class="button" target="_blank">WATCH TRAILER</a>
+						<div class="otherThanImages">
+							<div class="year" th:text="${movie.movie_info.release_date}"></div>
+							<div class="movie-title" th:text="${movie.movie_info.title}"></div>
+							<div class="button-container">
+								<a th:href="${movie.movie_info.trailer_url}" class="button" target="_blank">WATCH TRAILER</a>
+							</div>
 						</div>
 						<div id="image-section">
 							<img th:src="${movie.movie_info.poster_url}" alt="Poster">
-							<div class="demo-overlay"></div>
 						</div>
 					</div>
 					<div class="right-section">
@@ -40,6 +41,11 @@
 		</div>
 		<footer class="navigation">
 			<a href="#" class="confirm-movie" data-index="${iterStat.count}">제가 찾는 영화가 맞습니다</a>
+			<div class="slider__dot">
+			   <a href="#" class="dot" data-slide="0"><a>
+			   <a href="#" class="dot" data-slide="1"></a>
+			   <a href="#" class="dot" data-slide="2"></a>
+			</div>
 			<a th:href="@{/faq}">FAQ</a>
 		</footer>
 		<div class="slide_prev_button slide_button">◀</div>
