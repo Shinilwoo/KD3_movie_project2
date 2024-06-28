@@ -15,9 +15,6 @@
 	<div class="container">
 		<div class="header">What Is This Movie?</div>
 		<div class="subheader">Instant movie identification powered by the world's largest collection of movie</div>
-		<div>
-			<img id="preview" />
-		</div>
 		<div class="input-container">
 			<form th:action="@{/}" id="uploadForm" method="post" enctype="multipart/form-data" onsubmit="return validateFileInput()">
 				<input type="file" name="file" id="fileInput" accept="image/*"
@@ -26,6 +23,9 @@
 			</form>
 		</div>
 		<div>or drag and drop an image anywhere on the page</div>
+	</div>
+	<div>
+		<img id="preview" />
 	</div>
 	<div class="navigation">
 		<a th:href="@{/faq}">FAQ</a>

@@ -1,6 +1,6 @@
 body, html {
     min-width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -60,11 +60,17 @@ body, html {
 }
 
 .header {
+    color: #fff;
     margin-top: 1em;
     width: 100%;
     font-size: 2em;
     margin-bottom: 1em;
     flex-shrink: 0; /* 크기 축소 방지 */
+}
+
+.header a{
+    color: #FFF;
+    text-decoration: none;
 }
 
 .main-content {
@@ -83,7 +89,6 @@ body, html {
     padding: 10px;
     display: flex;
     flex-wrap: nowrap;
-    left: 50px; /* 왼쪽 섹션을 오른쪽으로 이동 */
     flex-shrink: 0; /* 크기 축소 방지 */
     overflow: hidden;
 }
@@ -92,6 +97,7 @@ body, html {
     perspective: 15px;
     width: 400px;
     height: 500px;
+    flex-shrink: 0; 
 }
 
 .left-section img {
@@ -103,7 +109,7 @@ body, html {
     flex-shrink: 0; 
 }
 .year {
-    padding: 10px 10px;
+    padding: 10px;
     color: #fff;
     font-size: 32px;
     font-weight: 600;
@@ -112,29 +118,24 @@ body, html {
 }
 
 .movie-title {
-    z-index: 1;
-    position: absolute;
-    top: 30%;   
-    width: 50%;
+    position: relative;
+    z-index: 3;
     height: auto;
-    margin: 0;
-    padding: 0 10px;
+    margin: 10px 0px;
     font-family: Inter;
     font-size: calc(2vw + 40px);
     font-style: italic;
     color: #FFF;
     font-weight: 700;
     line-height: normal;
-    word-wrap: break-word;
+    word-break: break-all; 
     transition: top 0.3s, font-size 0.3s;
     flex-shrink: 0; /* 크기 축소 방지 */
+    width: 100%;
 }
 
 .button-container {
     width: 300px;
-    margin: 10px;
-    margin-top: 50%;
-    height: 100%;
     display: flex;
     transition: top 0.3s; /* 애니메이션 추가 */
     flex-shrink: 0; /* 크기 축소 방지 */
@@ -173,7 +174,7 @@ body, html {
     width: 100%;
     z-index: 2;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     position: relative;
     flex-shrink: 0; /* footer는 크기를 줄이지 않도록 설정 */
 }
@@ -206,4 +207,23 @@ body, html {
 
 .slide_next_button {
     right: 10px;
+}
+
+.slider__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+.slider__dot .dot {
+    width: 20px;
+    height: 20px;
+    background-color: #bbb;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.slider__dot .dot.active {
+    background: rgba(255,255,255,0.9);
 }
