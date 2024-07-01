@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -170,11 +169,7 @@ public class MovieController {
 		if (imgSrc == null || reqResult == null) {
 			return "redirect:/error";
 		}
-		// result_list가 3개보다 작을 경우 에러 페이지로 리다이렉트
-		List<Map<String, Object>> resultList = (List<Map<String, Object>>) reqResult;
-		if (resultList.size() < 3) {
-			return "redirect:/error";
-		}
+
 		// 모델에 데이터 추가
 		model.addAttribute("imgSrc", imgSrc);
 		model.addAttribute("reqResult", reqResult);

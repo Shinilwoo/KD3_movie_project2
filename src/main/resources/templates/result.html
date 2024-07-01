@@ -11,32 +11,34 @@
 <body>
 	<div class="overlay"></div>
 	<div class="slide">
-		<div th:each="movie, iterStat : ${reqResult.result_list}" class="slide_item">
+		<div th:each="movie, iterStat : ${reqResult?.result_list}" class="slide_item" th:if="${movie != null}">
 			<div class="container">
 				<div class="header"><a th:href="@{/}">What Is This Movie?</a></div>
 				<div class="main-content">
 					<div class="left-section">
 						<div class="otherThanImages">
-							<div class="year" th:text="${movie.movie_info.release_date}"></div>
-							<div class="movie-title" th:text="${movie.movie_info.title}"></div>
+							<div class="year" th:if="${movie.movie_info != null}" th:text="${movie.movie_info.release_date}"></div>
+							<div class="movie-title" th:if="${movie.movie_info != null}" th:text="${movie.movie_info.title}"></div>
 							<div class="button-container">
-								<a th:href="${movie.movie_info.trailer_url}" class="button" target="_blank">WATCH TRAILER</a>
+								<a th:if="${movie.movie_info != null}" th:href="${movie.movie_info.trailer_url}" class="button" target="_blank">WATCH TRAILER</a>
 							</div>
 						</div>
 						<div id="image-section">
-							<img th:src="${movie.movie_info.poster_url}" alt="Poster">
+							<img th:if="${movie.movie_info !=null}" th:src="${movie.movie_info.poster_url}" alt="Poster">
 						</div>
 					</div>
 					<div class="right-section">
 						<div class="description">
-							<p th:text="'감독: ' + ${movie.movie_info.director}"></p>
-							<p th:text="'장르: ' + ${#strings.arrayJoin(movie.movie_info.genres, ', ')}"></p>
-							<p th:text="'배우: ' + ${movie.movie_info.actors}"></p>
-							<p th:text="${movie.overview}"></p>
+							<p th:if="${movie.score !=null && movie.movie_info!=null}" th:text="'유사도: ' + ${movie.score}"></p>
+							<p th:if="${movie.movie_info !=null}" th:text="'감독: ' + ${movie.movie_info.director}"></p>
+							<p th:if="${movie.movie_info !=null}" th:text="'장르: ' + ${#strings.arrayJoin(movie.movie_info.genres, ', ')}"></p>
+							<p th:if="${movie.movie_info !=null}" th:text="'배우: ' + ${movie.movie_info.actors}"></p>
+							<p th:if="${movie.movie_info !=null}" th:text="${movie.overview}"></p>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 			<div class="navigation">
 				<a href="#" class="confirm-movie" data-index="${iterStat.count}">제가 찾는 영화가 맞습니다.</a>
 				<div class="slider__dot">
@@ -46,7 +48,6 @@
 				</div>
 				<a th:href="@{/faq}">FAQ</a>
 			</div>
-		</div>
 
 		<div class="slide_prev_button slide_button">◀</div>
 		<div class="slide_next_button slide_button">▶</div>
@@ -55,7 +56,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script th:src="@{/result.js}"></script>
-	<script src="/title_save.js"></script>
+	<script th:src="@{/title_save.js}"></script>
 </body>
 
 </html>
