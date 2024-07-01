@@ -44,9 +44,14 @@ h1{
 }
 
 
+
 .how sec{
-    width: 50em;
+    width: 55em;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
+}
+
+.how div{
+	margin-left: 7em;
 }
