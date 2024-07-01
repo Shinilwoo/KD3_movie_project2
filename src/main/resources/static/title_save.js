@@ -31,6 +31,7 @@ $(function () {
             success: function (response) {
                 console.log('영화가 성공적으로 저장되었습니다.');
                 alert('영화가 성공적으로 저장되었습니다.');
+                window.location.href = '/';	// 메인 화면으로 이동
             },
             error: function (xhr, status, error) {
                 console.error('영화 저장에 실패했습니다.');
